@@ -36,7 +36,32 @@
         </header>
 
         <main>
+            <form action="" id="create-class">
+                <fieldset>
+                    <legend>Seus dados</legend>
 
+                    <div class="input-block">
+                        <label for="name">Nome completo</label>
+                        <input name="name" id="name" required>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="avatar">Link da sua foto <small>(comece com https://)</small></label>
+                        <input name="avatar" id="avatar" type="url" required>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="whatsapp">(somente numero)<small></small></label>
+                        <input name="whatsapp" id="whatsapp" type="number" required>
+                    </div>
+
+                    <div class="textarea-block">
+                        <label for="bio">Biografia</label>
+                        <textarea name="bio" id="bio" required></textarea>
+                    </div>
+
+                </fieldset>
+            </form>
         </main>
     </div>
 
