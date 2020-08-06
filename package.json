@@ -1,9 +1,12 @@
 {
     "name": "nlw",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "dev": "nodemon src/server.js"
     },
     "dependencies": {
         "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
     }
 }
