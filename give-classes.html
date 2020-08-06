@@ -120,9 +120,39 @@
                         </div>
                     </div>
 
+                    <div class="schedule-item">
+                        <div class="select-block">
+                            <label for="weekday" id="weekday">Dia da Semana</label>
+                            <select name="weekday[]" required>
+                                <option value="0">Domingo</option>
+                                <option value="1">Segunda-feira</option>
+                                <option value="2">Terça-feira</option>
+                                <option value="3">Quarta-feira</option>
+                                <option value="4">Quinta-feira</option>
+                                <option value="5">Sexta-feira</option>
+                                <option value="6">Sábado</option>
+                           </select>
+                        </div>
+
+                        <div class="input-block">
+                            <label for="time_from">Das</label>
+                            <input type="time" name="time_from[]" required>
+                        </div>
+
+                        <div class="input-block">
+                            <label for="time_to">Atés</label>
+                            <input type="time" name="time_to[]" required>
+                        </div>
+                    </div>
                 </fieldset>
             </form>
-            <footer>CONTINUAR DEPOIS AQUII !!!!!!!! Aula 03 - 37m50 video 05/08 </footer>
+            <footer>
+                <p>
+                    <img src="/images/icons/warning.svg" alt="Aviso importante"> Importante! <br> Preencha todos os dados
+                </p>
+
+                <button type="submit" form="create-class">Salvar cadastro</button>
+            </footer>
         </main>
     </div>
 
