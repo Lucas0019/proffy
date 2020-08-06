@@ -59,7 +59,7 @@
         flex: 1 1;
         padding-bottom: 48px;
         display: flex;
-        flex-direction: colum n;
+        flex-direction: column;
         justify-content: center;
     }
     .page-header .header-content strong {

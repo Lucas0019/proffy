@@ -116,4 +116,35 @@
     #page-give-classes #container {
         max-width: 100vw;
     }
+    /**Desktop */
+    #page-give-classes .page-header .header-content {
+        margin-bottom: 0;
+    }
+    #page-give-classes main fieldset {
+        padding: 0 64px;
+    }
+    /**Grid */
+    .schedule-item {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        column-gap: 1.6rem;
+    }
+    /**Alinhando  */
+    #page-give-classes #schedule-items .select-block+.input-block,
+    #page-give-classes #schedule-items .input-block+.input-block {
+        margin-top: 0;
+    }
+    /**Alinhando o botão */
+    #page-give-classes main footer {
+        padding: 40px 64px;
+        display: flex;
+        /**Organiza os itens internos  */
+        align-items: center;
+        justify-content: space-between;
+    }
+    /**Botão */
+    #page-give-classes main footer button {
+        margin-top: 0;
+        width: 200px;
+    }
 }
