@@ -60,8 +60,13 @@ const weekdays = [
     "Sábado",
 ]
 
-
 //Funcionalidades
+
+function getSubject(subjectNumber) {
+    const arrayPosition = +subjectNumber - 1
+    return subjects[arrayPosition]
+}
+
 function pageLanding(req, res) {
     // console.log(__dirname);
 
@@ -78,8 +83,24 @@ function pageStudy(req, res) {
 
 function pageGiveClasses(req, res) {
     // return res.sendFile(__dirname + "/view/give-classes.html") SEM O NUNJUCKS
-    return res.render("give-classes.html")
+    const data = req.query
+
+    const isNotEmpty = Object.keys(data).length > 0 //transformando em um array
+        //Se tiver dados (data)
+    if (isNotEmpty) {
+        data.subject = getSubject(data.subject)
+
+        //Add data ao inicio da lista
+        proffys.push(data)
+
+        //AJUDAR NO DESAFIO !!!!
+        return res.redirect('/study')
+    }
+    //Add dados a lista de Proffys
+    //Se não , não adicionar
+    return res.render("give-classes.html", { subjects, weekdays })
 }
+
 
 //Servidor
 const express = require('express')
