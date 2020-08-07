@@ -1,4 +1,4 @@
-//Pag Study
+//Dados da Pagina Study
 const proffys = [{
         name: "Diego Fernandes",
         avatar: "https://avatars2.githubusercontent.com/u/2254731?s=460&amp;u=0ba16a79456c2f250e7579cb388fa18c5c2d7d65&amp;v=4",
@@ -35,6 +35,33 @@ const proffys = [{
     }
 ]
 
+const subjects = [
+
+    "Artes",
+    "Biologia",
+    "Ciências",
+    "Educação física",
+    "Física",
+    "Geografia",
+    "História",
+    "Matemática",
+    "Português",
+    "Química",
+]
+
+const weekdays = [
+
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado",
+]
+
+
+//Funcionalidades
 function pageLanding(req, res) {
     // console.log(__dirname);
 
@@ -45,7 +72,8 @@ function pageLanding(req, res) {
 
 function pageStudy(req, res) {
     // return res.sendFile(__dirname + "/view/study.html") SEM O NUNJUCKS
-    return res.render("study.html", { proffys })
+    const filters = req.query
+    return res.render("study.html", { proffys, filters, subjects, weekdays })
 }
 
 function pageGiveClasses(req, res) {
@@ -53,16 +81,19 @@ function pageGiveClasses(req, res) {
     return res.render("give-classes.html")
 }
 
+//Servidor
 const express = require('express')
 const server = express()
 
-//Configurar nunjucks
+//Configurar nunjucks (Template Engine)
 const nunjucks = require('nunjucks')
 nunjucks.configure('src/view', {
     express: server,
     noCache: true,
 })
 
+
+//Inicio e Configuração do Servidor
 server
 //Configurar arquivos estáticos (css, scripts, images)
     .use(express.static("public"))
@@ -71,4 +102,5 @@ server
     .get("/study", pageStudy)
     .get("/give-classes", pageGiveClasses)
 
+//Start do Servidor
 .listen(5500)
