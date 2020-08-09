@@ -1,6 +1,6 @@
 const Database = require('./database/db')
 
-const { subjects, weekdays, getSubject } = require('./utils/format');
+const { subjects, weekdays, getSubject, convertHoursToMinutes } = require('./utils/format');
 
 function pageLanding(req, res) {
     // console.log(__dirname);
@@ -10,7 +10,7 @@ function pageLanding(req, res) {
     return res.render("index.html")
 }
 
-function pageStudy(req, res) {
+async function pageStudy(req, res) {
     // return res.sendFile(__dirname + "/view/study.html") SEM O NUNJUCKS
     const filters = req.query
 
@@ -18,24 +18,37 @@ function pageStudy(req, res) {
         return res.render("study.html", { filters, subjects, weekdays })
     }
 
-    console.log('Não tem campos vazios');
+    // console.log('Não tem campos vazios');
+
+    //Converter Horas em Minutos
+    const timeToMinutes = convertHoursToMinutes(filters.time)
 
     //Consulta 
     const query = `
         SELECT classes.*, proffys.*
         FROM proffys 
         JOIN classes ON (classes.proffy_id = proffys.id)    
-        WHERE EXISTS(
+        WHERE EXISTS (
             SELECT class_schedule.*
             FROM class_schedule
             WHERE class_schedule.class_id = classes.id
             AND class_schedule.weekday = ${filters.weekday}
-            AND class_schedule.time_from <= ${filters.time}
-            AND class_schedule.time_to > ${filters.time}
+            AND class_schedule.time_from <= ${timeToMinutes}
+            AND class_schedule.time_to > ${timeToMinutes}
         )
+        AND classes.subject = '$(filters.subject)'
     `
 
+    //Caso haja erro na hora da consulta do BD
+    try {
+        const db = await Database;
+        const proffys = await db.all(query)
 
+        return res.render('study.html', { proffys, subjects, filters, weekdays })
+
+    } catch (error) {
+        console.log(error);
+    }
 
 }
 
