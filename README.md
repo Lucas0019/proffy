@@ -1,3 +1,5 @@
+<img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/Lucas0019/NLW02-Discovery" /> <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/Lucas0019/NLW02-Discovery" /> <img alt="" src="https://img.shields.io/github/repo-size/Lucas0019/NLW02-Discovery" /> <img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/Lucas0019/NLW02-Discovery" /> <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/Lucas0019/NLW02-Discovery" />
+
 ## 📋 Índice
 
 - [Sobre](#-Sobre)
