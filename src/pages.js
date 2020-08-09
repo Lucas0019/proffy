@@ -36,7 +36,7 @@ async function pageStudy(req, res) {
             AND class_schedule.time_from <= ${timeToMinutes}
             AND class_schedule.time_to > ${timeToMinutes}
         )
-        AND classes.subject = '$(filters.subject)'
+        AND classes.subject = "${filters.subject}"
     `
 
     //Caso haja erro na hora da consulta do BD
