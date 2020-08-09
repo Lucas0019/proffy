@@ -91,7 +91,12 @@
         <main>
 
             <!-- Template Engine -->
-            {%for proffy in proffys %}
+
+            {% if proffys == "" %}
+
+            <p class="no-results">Nenhum professor encontrado com a sua pesquisa </p>
+
+            {% else %} {% for proffy in proffys %}
             <article class="teacher-item">
                 <header>
                     <img src="{{proffy.avatar}}" alt="{{proffy.name}}">
@@ -113,7 +118,8 @@
                     </a>
                 </footer>
             </article>
-            {%endfor%}
+
+            {%endfor%} {%endif%}
 
 
         </main>
