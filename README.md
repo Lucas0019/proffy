@@ -26,10 +26,10 @@ A proposta do projeto é uma aplicação que possa ligar quem deseja aprender, c
 
 O projeto está desenvolvido utilizando as seguintes tecnologias:
 
-- HTML
-- CSS
+- HTML & CSS 
 - JavaScript
 - Node.js 
+- Express
 - Nunjucks 
 - SQLite 
 
