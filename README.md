@@ -12,6 +12,7 @@
 
 ## 🖥 Preview 
 
+<img src="/public/prototipo-figma/proffy.png">
 
 ---
 
